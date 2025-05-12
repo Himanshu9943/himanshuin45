@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Interactive Navigation Menu</title>
+  <style>
+    /* Reset default styles */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    /* Navbar styles */
+    .navbar {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      background: linear-gradient(90deg, #626a79, #031535);
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      transition: background 0.3s ease, box-shadow 0.3s ease;
+      z-index: 1000;
+    }
+
+    .navbar.scrolled {
+      background: #a50909;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+
+    .navbar a {
+      color: #ffffff;
+      text-decoration: none;
+      font-size: 1.1rem;
+      transition: color 0.3s ease;
+    }
+
+    .navbar.scrolled a {
+      color: #333333;
+    }
+
+    .navbar a:hover {
+      color: #ff6f61;
+    }
+
+    /* Content styling */
+    .content {
+      margin-top: 80px; /* Height of the navbar */
+      padding: 2rem;
+    }
+
+    section {
+      padding: 100px 0;
+      border-bottom: 1px solid #dddddd;
+    }
+
+    section h1 {
+      margin-bottom: 1rem;
+    }
+
+    /* Responsive design */
+    @media (max-width: 600px) {
+      .navbar {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .navbar a {
+        padding: 0.5rem 0;
+      }
+    }
+  </style>
+</head>
+<body>
+  <nav class="navbar" id="navbar">
+    <a href="#home">Home</a>
+    <a href="#about">About</a>
+    <a href="#services">Services</a>
+    <a href="#contact">Contact</a>
+  </nav>
+
+  <main class="content">
+    <!-- Sample content to enable scrolling -->
+    <section id="home">
+      <h1>Home</h1>
+      <p>Welcome to our website. Scroll down to see the navigation bar change.</p>
+    </section>
+    <section id="about">
+      <h1>About</h1>
+      <p>About us section content. Learn more about our mission and values.</p>
+    </section>
+    <section id="services">
+      <h1>Services</h1>
+      <p>Our services are designed to meet your needs. Explore what we offer.</p>
+    </section>
+    <section id="contact">
+      <h1>Contact</h1>
+      <p>Get in touch with us through this section. We'd love to hear from you.</p>
+    </section>
+  </main>
+
+  <script>
+    // Select the navbar
+    const navbar = document.getElementById('navbar');
+
+    // Function to add or remove 'scrolled' class based on scroll position
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 50) {
+        navbar.classList.add('scrolled');
+      } else {
+        navbar.classList.remove('scrolled');
+      }
+    });
+  </script>
+</body>
+</html>
